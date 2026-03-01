@@ -6,11 +6,11 @@ using namespace std;
  * Function prototypes
 *******************************************************************************/
 
-unsigned fact(unsigned, unsigned);
-unsigned fib(unsigned, unsigned, unsigned);
-unsigned mult(unsigned, unsigned, unsigned);
-unsigned power(unsigned, unsigned, unsigned);
-unsigned product(unsigned, unsigned, unsigned);
+unsigned fact(unsigned n, unsigned res = 1);
+unsigned fib(unsigned n, unsigned a = 0, unsigned b = 1);
+unsigned mult(unsigned x, unsigned y, unsigned res = 0);
+unsigned power(unsigned x, unsigned y, unsigned res = 1);
+unsigned product(unsigned x, unsigned y, unsigned p = 1);
 
 /*******************************************************************************
  * Description:
@@ -46,7 +46,7 @@ int main() {
  * TODO: make them tail recursive :)
 *******************************************************************************/
 
-unsigned fact(unsigned n, unsigned res=1) {
+unsigned fact(unsigned n, unsigned res) {
     // base cases (combined)
     if (n <= 1) {
         return res;
@@ -56,7 +56,7 @@ unsigned fact(unsigned n, unsigned res=1) {
     return fact(n - 1, res * n);
 }
 
-unsigned fib(unsigned n, unsigned a=0, unsigned b=1) {
+unsigned fib(unsigned n, unsigned a, unsigned b) {
     // base case 1
     if (n == 0) {
         return a;
@@ -71,7 +71,7 @@ unsigned fib(unsigned n, unsigned a=0, unsigned b=1) {
     return fib(n - 1, b, a + b);        // a+b is the next fibonacci number and b is the current fibonacci number so we pass those as the new a and b respectively for the next call to the func
 }
 
-unsigned mult(unsigned x, unsigned y, unsigned res=0) {
+unsigned mult(unsigned x, unsigned y, unsigned res) {
     // base case
     if (y == 0) {
         return res;
@@ -81,7 +81,7 @@ unsigned mult(unsigned x, unsigned y, unsigned res=0) {
     return mult(x, y - 1, res + x);
 }
 
-unsigned power(unsigned x, unsigned y, unsigned res=1) {
+unsigned power(unsigned x, unsigned y, unsigned res) {
     // base case
     if (y == 0) {
         return res;
@@ -91,7 +91,7 @@ unsigned power(unsigned x, unsigned y, unsigned res=1) {
     return power(x, y - 1, res*x);
 }
 
-unsigned product(unsigned x, unsigned y, unsigned p=1) {
+unsigned product(unsigned x, unsigned y, unsigned p) {
     // base case
     if (x == y) {
         return p;
