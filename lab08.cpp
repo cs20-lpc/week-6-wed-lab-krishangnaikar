@@ -46,7 +46,7 @@ int main() {
  * TODO: make them tail recursive :)
 *******************************************************************************/
 
-unsigned fact(unsigned n, unsigned res) {
+unsigned fact(unsigned n, unsigned res=1) {
     // base cases (combined)
     if (n <= 1) {
         return res;
@@ -56,7 +56,7 @@ unsigned fact(unsigned n, unsigned res) {
     return fact(n - 1, res * n);
 }
 
-unsigned fib(unsigned n, unsigned a, unsigned b) {
+unsigned fib(unsigned n, unsigned a=0, unsigned b=1) {
     // base case 1
     if (n == 0) {
         return a;
@@ -71,7 +71,7 @@ unsigned fib(unsigned n, unsigned a, unsigned b) {
     return fib(n - 1, b, a + b);        // a+b is the next fibonacci number and b is the current fibonacci number so we pass those as the new a and b respectively for the next call to the func
 }
 
-unsigned mult(unsigned x, unsigned y, unsigned res) {
+unsigned mult(unsigned x, unsigned y, unsigned res=0) {
     // base case
     if (y == 0) {
         return res;
@@ -81,7 +81,7 @@ unsigned mult(unsigned x, unsigned y, unsigned res) {
     return mult(x, y - 1, res + x);
 }
 
-unsigned power(unsigned x, unsigned y, unsigned res) {
+unsigned power(unsigned x, unsigned y, unsigned res=1) {
     // base case
     if (y == 0) {
         return res;
@@ -91,7 +91,7 @@ unsigned power(unsigned x, unsigned y, unsigned res) {
     return power(x, y - 1, res*x);
 }
 
-unsigned product(unsigned x, unsigned y, unsigned p) {
+unsigned product(unsigned x, unsigned y, unsigned p=1) {
     // base case
     if (x == y) {
         return p;
